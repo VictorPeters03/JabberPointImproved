@@ -77,7 +77,7 @@ public class XMLAccessor extends Accessor {
 			}
 		} 
 		catch (IOException iox) {
-			System.err.println(iox.toString());
+			System.err.println(iox);
 		}
 		catch (SAXException sax) {
 			System.err.println(sax.getMessage());
@@ -118,9 +118,7 @@ public class XMLAccessor extends Accessor {
 		out.println("<?xml version=\"1.0\"?>");
 		out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
 		out.println("<presentation>");
-		out.print("<showtitle>");
-		out.print(presentation.getTitle());
-		out.println("</showtitle>");
+		out.print("<showtitle>" + presentation.getTitle() + "</showtitle>");
 		for (int slideNumber=0; slideNumber<presentation.getSize(); slideNumber++) {
 			Slide slide = presentation.getSlide(slideNumber);
 			out.println("<slide>");
