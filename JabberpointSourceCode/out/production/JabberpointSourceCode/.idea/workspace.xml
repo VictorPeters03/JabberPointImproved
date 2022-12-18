@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c30fbfc7-7039-491e-a6f0-749f3047c72d" name="Changes" comment="Fixed indentation and fixed issue where any slide number could be enterd in goto slide.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/TextItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XMLAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/XMLAccessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -22,7 +31,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IdxkFOjMdVeJMYxw3Kg6Q44b38" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -31,6 +42,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/school/Jaar 2/Periode 2/OGO/JabberPointImproved/JabberpointSourceCode&quot;
   }
@@ -59,7 +71,8 @@
       <updated>1670525403118</updated>
       <workItem from="1670525404366" duration="1795000" />
       <workItem from="1670677167366" duration="44000" />
-      <workItem from="1671029376898" duration="738000" />
+      <workItem from="1671029376898" duration="2204000" />
+      <workItem from="1671370161442" duration="3324000" />
     </task>
     <task id="LOCAL-00001" summary="Created gitignore">
       <created>1670525494637</created>
