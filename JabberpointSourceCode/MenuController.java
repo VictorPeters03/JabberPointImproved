@@ -4,6 +4,7 @@ import java.awt.Menu;
 import java.awt.MenuItem;
 import java.awt.MenuShortcut;
 import java.io.IOException;
+import java.io.Serial;
 
 import javax.swing.JOptionPane;
 
@@ -19,6 +20,7 @@ public class MenuController extends MenuBar
     private Frame parent; //The frame, only used as parent for the Dialogs
     private Presentation presentation; //Commands are given to the presentation
 
+    @Serial
     private static final long serialVersionUID = 227L;
 
     protected static final String TESTFILE = "testPresentation.xml";

@@ -33,6 +33,11 @@ public class Presentation {
 		return showList.size();
 	}
 
+	public ArrayList<Slide> getShowList()
+	{
+		return showList;
+	}
+
 	public String getTitle() {
 		return showTitle;
 	}

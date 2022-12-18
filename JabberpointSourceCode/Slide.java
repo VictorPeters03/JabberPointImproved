@@ -1,6 +1,7 @@
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
+import java.io.PrintWriter;
 import java.util.Vector;
 
 /**
@@ -87,5 +88,16 @@ public class Slide
     private float getScale(Rectangle area)
     {
         return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
+    }
+
+    public void saveToSlide(PrintWriter out)
+    {
+        for (SlideItem slideItem : getSlideItems())
+        {
+            out.print("<item kind=");
+            slideItem.saveElementToSlide(out, slideItem);
+            out.println("</item>");
+        }
+        out.println("</slide>");
     }
 }

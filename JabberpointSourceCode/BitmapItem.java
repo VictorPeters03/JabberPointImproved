@@ -7,6 +7,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 
 /** <p>The class for a Bitmap item</p>
@@ -68,5 +69,11 @@ public class BitmapItem extends SlideItem {
 
 	public String toString() {
 		return "BitmapItem[" + getLevel() + "," + imageName + "]";
+	}
+
+	public void saveElementToSlide(PrintWriter out, SlideItem slideItem)
+	{
+		out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
+		out.print( ( (BitmapItem) slideItem).getName());
 	}
 }

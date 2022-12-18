@@ -8,6 +8,7 @@ import java.awt.font.LineBreakMeasurer;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.ImageObserver;
+import java.io.PrintWriter;
 import java.text.AttributedString;
 import java.util.List;
 import java.util.Iterator;
@@ -108,5 +109,11 @@ public class TextItem extends SlideItem {
 
 	public String toString() {
 		return "TextItem[" + getLevel()+","+getText()+"]";
+	}
+
+	public void saveElementToSlide(PrintWriter out, SlideItem slideItem)
+	{
+		out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
+		out.print( ( (TextItem) slideItem).getText());
 	}
 }
