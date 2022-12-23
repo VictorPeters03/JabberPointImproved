@@ -27,21 +27,14 @@ import java.util.ArrayList;
 
 public class TextItem extends SlideItem {
 	private String text;
-	
-	private static final String EMPTYTEXT = "No Text Given";
 
-//A textitem of int level with text string
+	//A textitem of int level with text string
 	public TextItem(int level, String string) {
 		super(level);
 		text = string;
 	}
 
-//An empty textitem
-	public TextItem() {
-		this(0, EMPTYTEXT);
-	}
-
-//Returns the text
+	//Returns the text
 	public String getText() {
 		return text == null ? "" : text;
 	}
@@ -94,7 +87,7 @@ public class TextItem extends SlideItem {
 	  }
 
 	private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
-		List<TextLayout> layouts = new ArrayList<TextLayout>();
+		List<TextLayout> layouts = new ArrayList<>();
 		AttributedString attrStr = getAttributedString(s, scale);
     	Graphics2D g2d = (Graphics2D) g;
     	FontRenderContext frc = g2d.getFontRenderContext();
@@ -111,9 +104,9 @@ public class TextItem extends SlideItem {
 		return "TextItem[" + getLevel()+","+getText()+"]";
 	}
 
-	public void saveElementToSlide(PrintWriter out, SlideItem slideItem)
+	public void printElementToSlide(PrintWriter out)
 	{
-		out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
-		out.print( ( (TextItem) slideItem).getText());
+		out.print("\"text\" level=\"" + getLevel() + "\">");
+		out.print(getText());
 	}
 }

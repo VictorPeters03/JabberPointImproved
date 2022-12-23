@@ -3,14 +3,32 @@
   <component name="ChangeListManager">
     <list default="true" id="c30fbfc7-7039-491e-a6f0-749f3047c72d" name="Changes" comment="Fixed indentation and fixed issue where any slide number could be enterd in goto slide.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AboutBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/AboutBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Accessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Accessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BitmapItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/BitmapItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DemoPresentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/DemoPresentation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Presentation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Presentation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JabberPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/JabberPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KeyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/KeyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Slide.java" beforeDir="false" afterPath="$PROJECT_DIR$/Slide.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SlideItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/SlideItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlideViewerComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/SlideViewerComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SlideViewerFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/SlideViewerFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Style.java" beforeDir="false" afterPath="$PROJECT_DIR$/Style.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TextItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/TextItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/XMLAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/XMLAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/AboutBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/AboutBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/Accessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/Accessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/BitmapItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/BitmapItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/KeyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/KeyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/Presentation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/Presentation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/Slide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/Slide.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/SlideItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/SlideItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/SlideViewerComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/SlideViewerComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/SlideViewerFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/SlideViewerFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/SlideViewerFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/TextItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/TextItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JabberpointSourceCode/XMLAccessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JabberpointSourceCode/XMLAccessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedPresentation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/savedPresentation.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +74,7 @@
     <configuration name="JabberPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="JabberPoint" />
       <module name="JabberpointSourceCode" />
+      <option name="PROGRAM_PARAMETERS" value="savedPresentation.xml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -78,6 +97,10 @@
       <workItem from="1670677167366" duration="44000" />
       <workItem from="1671029376898" duration="2204000" />
       <workItem from="1671370161442" duration="5088000" />
+      <workItem from="1671445723010" duration="2640000" />
+      <workItem from="1671522026554" duration="2513000" />
+      <workItem from="1671559186376" duration="1687000" />
+      <workItem from="1671716475066" duration="2808000" />
     </task>
     <task id="LOCAL-00001" summary="Created gitignore">
       <created>1670525494637</created>

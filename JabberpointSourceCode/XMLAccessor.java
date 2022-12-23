@@ -1,18 +1,16 @@
-import java.util.Vector;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.FileWriter;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 
 /**
@@ -24,11 +22,6 @@ import org.w3c.dom.NodeList;
 
 public class XMLAccessor extends Accessor
 {
-
-    /**
-     * Default API to use.
-     */
-    protected static final String DEFAULT_API_TO_USE = "dom";
 
     /**
      * Names of xml tags of attributes
@@ -59,7 +52,7 @@ public class XMLAccessor extends Accessor
 
     public void loadFile(Presentation presentation, String filename) throws IOException
     {
-        int slideNumber, itemNumber, max = 0, maxItems = 0;
+        int slideNumber, itemNumber, max, maxItems;
         try
         {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -128,46 +121,4 @@ public class XMLAccessor extends Accessor
             }
         }
     }
-
-	public void saveFile(Presentation presentation, String filename) throws IOException {
-		PrintWriter out = new PrintWriter(new FileWriter(filename));
-		out.println("<?xml version=\"1.0\"?>");
-		out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
-		out.println("<presentation>");
-		out.print("<showtitle>" + presentation.getTitle() + "</showtitle>");
-//        for (int slideNumber=0; slideNumber<presentation.getSize(); slideNumber++) {
-//            Slide slide = presentation.getSlide(slideNumber);
-//            out.println("<slide>");
-//            out.println("<title>" + slide.getTitle() + "</title>");
-//            Vector<SlideItem> slideItems = slide.getSlideItems();
-//            for (int itemNumber = 0; itemNumber<slideItems.size(); itemNumber++) {
-//                SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
-//                out.print("<item kind=");
-//                if (slideItem instanceof TextItem) {
-//                    out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
-//                    out.print( ( (TextItem) slideItem).getText());
-//                }
-//                else {
-//                    if (slideItem instanceof BitmapItem) {
-//                        out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-//                        out.print( ( (BitmapItem) slideItem).getName());
-//                    }
-//                    else {
-//                        System.out.println("Ignoring " + slideItem);
-//                    }
-//                }
-//                out.println("</item>");
-//            }
-//            out.println("</slide>");
-//        }
-
-        for (Slide slide : presentation.getShowList())
-        {
-            out.println("<slide>");
-            out.println("<title>" + slide.getTitle() + "</title>");
-            slide.saveToSlide(out);
-        }
-		out.println("</presentation>");
-		out.close();
-	}
 }

@@ -41,11 +41,6 @@ public class BitmapItem extends SlideItem {
 		}
 	}
 
-	//An empty bitmap item
-	public BitmapItem() {
-		this(0, null);
-	}
-
 	//Returns the filename of the image
 	public String getName() {
 		return imageName;
@@ -71,9 +66,9 @@ public class BitmapItem extends SlideItem {
 		return "BitmapItem[" + getLevel() + "," + imageName + "]";
 	}
 
-	public void saveElementToSlide(PrintWriter out, SlideItem slideItem)
+	public void printElementToSlide(PrintWriter out)
 	{
-		out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-		out.print( ( (BitmapItem) slideItem).getName());
+		out.print("\"image\" level=\"" + getLevel() + "\">");
+		out.print(getName());
 	}
 }

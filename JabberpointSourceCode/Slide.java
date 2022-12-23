@@ -20,7 +20,7 @@ public class Slide
 
     public Slide()
     {
-        items = new Vector<SlideItem>();
+        items = new Vector<>();
     }
 
     //Add a SlideItem
@@ -50,7 +50,7 @@ public class Slide
     //Returns the SlideItem
     public SlideItem getSlideItem(int number)
     {
-        return (SlideItem) items.elementAt(number);
+        return items.elementAt(number);
     }
 
     //Return all the SlideItems in a vector
@@ -72,13 +72,13 @@ public class Slide
         int y = area.y;
         //The title is treated separately
         SlideItem slideItem = new TextItem(0, getTitle());
-        Style style = Style.getStyle(slideItem.getLevel());
+        Style style = JabberPoint.getStyle(slideItem.getLevel());
         slideItem.draw(area.x, y, scale, g, style, view);
         y += slideItem.getBoundingBox(g, view, scale, style).height;
         for (int number = 0; number < getSize(); number++)
         {
-            slideItem = (SlideItem) getSlideItems().elementAt(number);
-            style = Style.getStyle(slideItem.getLevel());
+            slideItem = getSlideItems().elementAt(number);
+            style = JabberPoint.getStyle(slideItem.getLevel());
             slideItem.draw(area.x, y, scale, g, style, view);
             y += slideItem.getBoundingBox(g, view, scale, style).height;
         }
@@ -90,14 +90,13 @@ public class Slide
         return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
     }
 
-    public void saveToSlide(PrintWriter out)
+    public void saveSlideItemsToSlide(PrintWriter out)
     {
-        for (SlideItem slideItem : getSlideItems())
+        for (SlideItem slideItem : this.items)
         {
             out.print("<item kind=");
-            slideItem.saveElementToSlide(out, slideItem);
+            slideItem.printElementToSlide(out);
             out.println("</item>");
         }
-        out.println("</slide>");
     }
 }

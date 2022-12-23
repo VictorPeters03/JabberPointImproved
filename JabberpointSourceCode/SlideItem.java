@@ -15,17 +15,13 @@ import java.io.PrintWriter;
 */
 
 public abstract class SlideItem {
-	private int level = 0; //The level of the SlideItem
+	private int level; //The level of the SlideItem
 
 	public SlideItem(int lev) {
 		level = lev;
 	}
 
-	public SlideItem() {
-		this(0);
-	}
-
-//Returns the level
+	//Returns the level
 	public int getLevel() {
 		return level;
 	}
@@ -38,5 +34,5 @@ public abstract class SlideItem {
 	public abstract void draw(int x, int y, float scale, 
 			Graphics g, Style style, ImageObserver observer);
 
-	public abstract void saveElementToSlide(PrintWriter out, SlideItem slideItem);
+	public abstract void printElementToSlide(PrintWriter out);
 }
