@@ -51,14 +51,15 @@ public class TextItem extends SlideItem {
 			float scale, Style myStyle) {
 		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
 		int xsize = 0, ysize = (int) (myStyle.leading * scale);
-		Iterator<TextLayout> iterator = layouts.iterator();
-		while (iterator.hasNext()) {
-			TextLayout layout = iterator.next();
+		for (TextLayout layout : layouts)
+		{
 			Rectangle2D bounds = layout.getBounds();
-			if (bounds.getWidth() > xsize) {
+			if (bounds.getWidth() > xsize)
+			{
 				xsize = (int) bounds.getWidth();
 			}
-			if (bounds.getHeight() > 0) {
+			if (bounds.getHeight() > 0)
+			{
 				ysize += bounds.getHeight();
 			}
 			ysize += layout.getLeading() + layout.getDescent();
@@ -77,9 +78,8 @@ public class TextItem extends SlideItem {
 				y + (int) (myStyle.leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setColor(myStyle.color);
-		Iterator<TextLayout> it = layouts.iterator();
-		while (it.hasNext()) {
-			TextLayout layout = it.next();
+		for (TextLayout layout : layouts)
+		{
 			pen.y += layout.getAscent();
 			layout.draw(g2d, pen.x, pen.y);
 			pen.y += layout.getDescent();
@@ -104,7 +104,7 @@ public class TextItem extends SlideItem {
 		return "TextItem[" + getLevel()+","+getText()+"]";
 	}
 
-	public void printElementToSlide(PrintWriter out)
+	public void printItem(PrintWriter out)
 	{
 		out.print("\"text\" level=\"" + getLevel() + "\">");
 		out.print(getText());

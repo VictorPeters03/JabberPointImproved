@@ -66,7 +66,7 @@ public class BitmapItem extends SlideItem {
 		return "BitmapItem[" + getLevel() + "," + imageName + "]";
 	}
 
-	public void printElementToSlide(PrintWriter out)
+	public void printItem(PrintWriter out)
 	{
 		out.print("\"image\" level=\"" + getLevel() + "\">");
 		out.print(getName());

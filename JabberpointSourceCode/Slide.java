@@ -82,6 +82,10 @@ public class Slide
             slideItem.draw(area.x, y, scale, g, style, view);
             y += slideItem.getBoundingBox(g, view, scale, style).height;
         }
+        for (SlideItem slideItem1 : this.items)
+        {
+
+        }
     }
 
     //Returns the scale to draw a slide
@@ -95,7 +99,7 @@ public class Slide
         for (SlideItem slideItem : this.items)
         {
             out.print("<item kind=");
-            slideItem.printElementToSlide(out);
+            slideItem.printItem(out);
             out.println("</item>");
         }
     }

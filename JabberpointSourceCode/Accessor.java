@@ -17,10 +17,6 @@ import java.io.PrintWriter;
 
 public abstract class Accessor {
 
-	public static Accessor getDemoAccessor() {
-		return new DemoPresentation();
-	}
-
 	public Accessor() {
 	}
 

@@ -37,6 +37,31 @@ public class MenuController extends MenuBar
         MenuItem menuItem;
         Menu fileMenu = new Menu(JabberPointMenuItems.FILE);
         fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.OPEN));
+        addOpenPresentationAction(menuItem);
+        fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.NEW));
+        addNewPresentationAction(menuItem);
+        fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.SAVE));
+        addSavePresentationAction(menuItem);
+        fileMenu.addSeparator();
+        fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.EXIT));
+        menuItem.addActionListener(actionEvent -> presentation.exit(0));
+        add(fileMenu);
+        Menu viewMenu = new Menu(JabberPointMenuItems.VIEW);
+        viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.NEXT));
+        menuItem.addActionListener(actionEvent -> presentation.nextSlide());
+        viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.PREV));
+        menuItem.addActionListener(actionEvent -> presentation.prevSlide());
+        viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.GOTO));
+        addGotoSlideAction(menuItem);
+        add(viewMenu);
+        Menu helpMenu = new Menu(JabberPointMenuItems.HELP);
+        helpMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.ABOUT));
+        menuItem.addActionListener(actionEvent -> AboutBox.show(parent));
+        setHelpMenu(helpMenu);        //Needed for portability (Motif, etc.).
+    }
+
+    public void addOpenPresentationAction(MenuItem menuItem)
+    {
         menuItem.addActionListener(actionEvent ->
         {
             presentation.clear();
@@ -52,13 +77,19 @@ public class MenuController extends MenuBar
             }
             parent.repaint();
         });
-        fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.NEW));
+    }
+
+    public void addNewPresentationAction(MenuItem menuItem)
+    {
         menuItem.addActionListener(actionEvent ->
         {
             presentation.clear();
             parent.repaint();
         });
-        fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.SAVE));
+    }
+
+    public void addSavePresentationAction(MenuItem menuItem)
+    {
         menuItem.addActionListener(e ->
         {
             Accessor xmlAccessor = new XMLAccessor();
@@ -71,27 +102,16 @@ public class MenuController extends MenuBar
                         SAVEERR, JOptionPane.ERROR_MESSAGE);
             }
         });
-        fileMenu.addSeparator();
-        fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.EXIT));
-        menuItem.addActionListener(actionEvent -> presentation.exit(0));
-        add(fileMenu);
-        Menu viewMenu = new Menu(JabberPointMenuItems.VIEW);
-        viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.NEXT));
-        menuItem.addActionListener(actionEvent -> presentation.nextSlide());
-        viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.PREV));
-        menuItem.addActionListener(actionEvent -> presentation.prevSlide());
-        viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.GOTO));
+    }
+
+    public void addGotoSlideAction(MenuItem menuItem)
+    {
         menuItem.addActionListener(actionEvent ->
         {
             String pageNumberStr = JOptionPane.showInputDialog(JabberPointMenuItems.PAGENR);
             int pageNumber = Integer.parseInt(pageNumberStr);
             presentation.setSlideNumber(pageNumber - 1);
         });
-        add(viewMenu);
-        Menu helpMenu = new Menu(JabberPointMenuItems.HELP);
-        helpMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.ABOUT));
-        menuItem.addActionListener(actionEvent -> AboutBox.show(parent));
-        setHelpMenu(helpMenu);        //Needed for portability (Motif, etc.).
     }
 
     //Creating a menu-item

@@ -12,9 +12,9 @@ import java.io.PrintWriter;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-class DemoPresentation extends Accessor {
+class DemoPresentation extends Presentation {
 
-	public void loadFile(Presentation presentation, String unusedFilename) {
+	public static void loadFile(Presentation presentation) {
 		presentation.setTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
@@ -50,40 +50,5 @@ class DemoPresentation extends Accessor {
 		slide.append(1, "This is the end of the presentation.");
 		slide.append(new BitmapItem(1, "JabberPoint.jpg"));
 		presentation.append(slide);
-	}
-
-	public void saveFile(Presentation presentation, String unusedFilename) throws IOException
-	{
-		PrintWriter out = new PrintWriter(new FileWriter(unusedFilename));
-		out.println("<?xml version=\"1.0\"?>");
-		out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
-		out.println("<presentation>");
-		out.print("<showtitle>" + presentation.getTitle() + "</showtitle>");
-		for (int slideNumber=0; slideNumber<presentation.getSize(); slideNumber++) {
-			Slide slide = presentation.getSlide(slideNumber);
-			out.println("<slide>");
-			out.println("<title>" + slide.getTitle() + "</title>");
-			for (SlideItem slideItem : slide.getSlideItems())
-			{
-				out.print("<item kind=");
-				if (slideItem instanceof TextItem) {
-					out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
-					out.print( ( (TextItem) slideItem).getText());
-				}
-				else {
-					if (slideItem instanceof BitmapItem) {
-						out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-						out.print( ( (BitmapItem) slideItem).getName());
-					}
-					else {
-						System.out.println("Ignoring " + slideItem);
-					}
-				}
-				out.println("</item>");
-			}
-			out.println("</slide>");
-		}
-		out.println("</presentation>");
-		out.close();
 	}
 }

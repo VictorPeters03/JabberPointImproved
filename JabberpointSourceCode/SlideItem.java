@@ -34,5 +34,5 @@ public abstract class SlideItem {
 	public abstract void draw(int x, int y, float scale, 
 			Graphics g, Style style, ImageObserver observer);
 
-	public abstract void printElementToSlide(PrintWriter out);
+	public abstract void printItem(PrintWriter out);
 }
