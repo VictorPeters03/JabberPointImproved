@@ -47,17 +47,17 @@ public class BitmapItem extends SlideItem {
 	}
 
 	//Returns the bounding box of the image
-	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle) {
-		return new Rectangle((int) (myStyle.indent * scale), 0,
+	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale) {
+		return new Rectangle((int) (JabberPoint.getStyle(level).indent * scale), 0,
 				(int) (bufferedImage.getWidth(observer) * scale),
-				((int) (myStyle.leading * scale)) + 
+				((int) (JabberPoint.getStyle(level).leading * scale)) +
 				(int) (bufferedImage.getHeight(observer) * scale));
 	}
 
 	//Draws the image
-	public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer) {
-		int width = x + (int) (myStyle.indent * scale);
-		int height = y + (int) (myStyle.leading * scale);
+	public void draw(int x, int y, float scale, Graphics g, ImageObserver observer) {
+		int width = x + (int) (JabberPoint.getStyle(level).indent * scale);
+		int height = y + (int) (JabberPoint.getStyle(level).leading * scale);
 		g.drawImage(bufferedImage, width, height,(int) (bufferedImage.getWidth(observer)*scale),
                 (int) (bufferedImage.getHeight(observer)*scale), observer);
 	}

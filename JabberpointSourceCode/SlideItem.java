@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 */
 
 public abstract class SlideItem {
-	private int level; //The level of the SlideItem
+	protected int level; //The level of the SlideItem
 
 	public SlideItem(int lev) {
 		level = lev;
@@ -27,12 +27,11 @@ public abstract class SlideItem {
 	}
 
 //Returns the bounding box
-	public abstract Rectangle getBoundingBox(Graphics g, 
-			ImageObserver observer, float scale, Style style);
+	public abstract Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale);
 
 //Draws the item
 	public abstract void draw(int x, int y, float scale, 
-			Graphics g, Style style, ImageObserver observer);
+			Graphics g, ImageObserver observer);
 
 	public abstract void printItem(PrintWriter out);
 }

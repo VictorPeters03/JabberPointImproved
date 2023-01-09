@@ -69,22 +69,16 @@ public class Slide
     public void draw(Graphics g, Rectangle area, ImageObserver view)
     {
         float scale = getScale(area);
+        int x = area.x;
         int y = area.y;
         //The title is treated separately
-        SlideItem slideItem = new TextItem(0, getTitle());
-        Style style = JabberPoint.getStyle(slideItem.getLevel());
-        slideItem.draw(area.x, y, scale, g, style, view);
-        y += slideItem.getBoundingBox(g, view, scale, style).height;
-        for (int number = 0; number < getSize(); number++)
+        SlideItem slideItemTitle = new TextItem(0, getTitle());
+        slideItemTitle.draw(x, y, scale, g, view);
+        y += slideItemTitle.getBoundingBox(g, view, scale).height;
+        for (SlideItem slideItem : this.items)
         {
-            slideItem = getSlideItems().elementAt(number);
-            style = JabberPoint.getStyle(slideItem.getLevel());
-            slideItem.draw(area.x, y, scale, g, style, view);
-            y += slideItem.getBoundingBox(g, view, scale, style).height;
-        }
-        for (SlideItem slideItem1 : this.items)
-        {
-
+            slideItem.draw(x, y, scale, g, view);
+            y += slideItem.getBoundingBox(g, view, scale).height;
         }
     }
 
@@ -94,7 +88,7 @@ public class Slide
         return Math.min(((float) area.width) / ((float) WIDTH), ((float) area.height) / ((float) HEIGHT));
     }
 
-    public void saveSlideItemsToSlide(PrintWriter out)
+    public void saveSlideItems(PrintWriter out)
     {
         for (SlideItem slideItem : this.items)
         {

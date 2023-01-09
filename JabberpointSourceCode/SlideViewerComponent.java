@@ -23,9 +23,6 @@ public class SlideViewerComponent extends JComponent {
 	private Font labelFont; //The font for labels
 	private Presentation presentation; //The presentation
 	private JFrame frame;
-	
-	private static final long serialVersionUID = 227L;
-	
 	private static final Color BGCOLOR = Color.white;
 	private static final Color COLOR = Color.black;
 	private static final String FONTNAME = "Dialog";

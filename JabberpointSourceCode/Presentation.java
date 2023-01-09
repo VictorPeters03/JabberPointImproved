@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 
 public class Presentation {
-	private String showTitle; //The title of the presentation
+	protected String showTitle; //The title of the presentation
 	private ArrayList<Slide> showList = null; //An ArrayList with slides
 	private int currentSlideNumber = 0; //The number of the current slide
 	private SlideViewerComponent slideViewComponent; //The view component of the slides
@@ -90,10 +90,7 @@ public class Presentation {
 
 	//Return a slide with a specific number
 	public Slide getSlide(int number) {
-		if (number < 0 || number >= getSize()){
-			return null;
-	    }
-			return showList.get(number);
+		return number < 0 || number >= getSize() ? null : showList.get(number);
 	}
 
 	//Return the current slide

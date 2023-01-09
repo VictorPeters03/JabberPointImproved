@@ -47,10 +47,9 @@ public class TextItem extends SlideItem {
 	}
 
 //Returns the bounding box of an Item
-	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, 
-			float scale, Style myStyle) {
-		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
-		int xsize = 0, ysize = (int) (myStyle.leading * scale);
+	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale) {
+		List<TextLayout> layouts = getLayouts(g, JabberPoint.getStyle(level), scale);
+		int xsize = 0, ysize = (int) (JabberPoint.getStyle(level).leading * scale);
 		for (TextLayout layout : layouts)
 		{
 			Rectangle2D bounds = layout.getBounds();
@@ -64,20 +63,19 @@ public class TextItem extends SlideItem {
 			}
 			ysize += layout.getLeading() + layout.getDescent();
 		}
-		return new Rectangle((int) (myStyle.indent*scale), 0, xsize, ysize );
+		return new Rectangle((int) (JabberPoint.getStyle(level).indent*scale), 0, xsize, ysize );
 	}
 
 //Draws the item
-	public void draw(int x, int y, float scale, Graphics g, 
-			Style myStyle, ImageObserver o) {
+	public void draw(int x, int y, float scale, Graphics g, ImageObserver o) {
 		if (text == null || text.length() == 0) {
 			return;
 		}
-		List<TextLayout> layouts = getLayouts(g, myStyle, scale);
-		Point pen = new Point(x + (int)(myStyle.indent * scale), 
-				y + (int) (myStyle.leading * scale));
+		List<TextLayout> layouts = getLayouts(g, JabberPoint.getStyle(level), scale);
+		Point pen = new Point(x + (int)(JabberPoint.getStyle(level).indent * scale),
+				y + (int) (JabberPoint.getStyle(level).leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
-		g2d.setColor(myStyle.color);
+		g2d.setColor(JabberPoint.getStyle(level).color);
 		for (TextLayout layout : layouts)
 		{
 			pen.y += layout.getAscent();

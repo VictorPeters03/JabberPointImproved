@@ -48,12 +48,14 @@ public class JabberPoint {
 	public static void main(String[] argv) {
 		
 		createStyles();
-		Presentation presentation = new Presentation();
-		new SlideViewerFrame(JABVERSION, presentation);
+		Presentation presentation;
 		try {
 			if (argv.length == 0) { //a demo presentation
-				DemoPresentation.loadFile(presentation);
+				presentation = new DemoPresentation();
+				new SlideViewerFrame(JABVERSION, presentation);
 			} else {
+				presentation = new Presentation();
+				new SlideViewerFrame(JABVERSION, presentation);
 				new XMLAccessor().loadFile(presentation, argv[0]);
 			}
 			presentation.setSlideNumber(0);

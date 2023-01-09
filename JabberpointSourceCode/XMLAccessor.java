@@ -121,4 +121,22 @@ public class XMLAccessor extends Accessor
             }
         }
     }
+
+    public void saveFile(Presentation presentation, String filename) throws IOException
+    {
+        PrintWriter out = new PrintWriter(new FileWriter(filename));
+        out.println("<?xml version=\"1.0\"?>");
+        out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
+        out.println("<presentation>");
+        out.print("<showtitle>" + presentation.getTitle() + "</showtitle>");
+        for (Slide slide : presentation.getShowList())
+        {
+            out.println("<slide>");
+            out.println("<title>" + slide.getTitle() + "</title>");
+            slide.saveSlideItems(out);
+            out.println("</slide>");
+        }
+        out.println("</presentation>");
+        out.close();
+    }
 }
