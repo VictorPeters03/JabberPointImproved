@@ -1,19 +1,21 @@
+package com.builders;
+
 import javax.swing.*;
 import java.io.IOException;
-import java.awt.MenuBar;
 import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuItem;
 import java.awt.MenuShortcut;
+import IMakeMenuItem;
 
-public class FileMenuBuilder extends MenuBar implements IMakeMenuItem
+public class FileMenuBuilder implements IMakeMenuItem
 {
     protected static final String SAVEFILE = "savedPresentation.xml";
     protected static final String IOEX = "IO Exception: ";
     protected static final String LOADERR = "Load Error";
     protected static final String SAVEERR = "Save Error";
 
-    public FileMenuBuilder(Frame parent, Presentation pres, Menu fileMenu)
+    public void buildMenu(Frame parent, Presentation pres, Menu fileMenu)
     {
         MenuItem menuItem;
         fileMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.OPEN));

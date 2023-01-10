@@ -1,9 +1,11 @@
+package com.builders;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class ViewMenuBuilder extends MenuBar implements IMakeMenuItem
+public class ViewMenuBuilder implements IMakeMenuItem
 {
-    public ViewMenuBuilder(Presentation pres, Menu viewMenu)
+    public void buildMenu(Presentation pres, Menu viewMenu)
     {
         MenuItem menuItem;
         viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.NEXT));

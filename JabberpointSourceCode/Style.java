@@ -11,7 +11,7 @@ import java.awt.Font;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Style
+public class Style extends StyleFactory
 {
 
     private static final String FONTNAME = "Helvetica";
