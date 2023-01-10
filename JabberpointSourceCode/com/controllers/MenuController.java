@@ -1,6 +1,9 @@
-import com.builders.FileMenuBuilder;
-import com.builders.HelpMenuBuilder;
-import com.builders.ViewMenuBuilder;
+package com.controllers;
+
+import com.menubuilders.FileMenuBuilder;
+import com.menubuilders.HelpMenuBuilder;
+import com.menubuilders.ViewMenuBuilder;
+import com.presentations.Presentation;
 
 import java.awt.*;
 

@@ -1,3 +1,8 @@
+package com.slideitems;
+
+import com.main.JabberPoint;
+import com.slide.Slide;
+
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,7 +16,6 @@ import java.awt.image.ImageObserver;
 import java.io.PrintWriter;
 import java.text.AttributedString;
 import java.util.List;
-import java.util.Iterator;
 import java.util.ArrayList;
 
 /** <p>A text item.</p>
@@ -25,7 +29,8 @@ import java.util.ArrayList;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class TextItem extends SlideItem {
+public class TextItem extends SlideItem
+{
 	private String text;
 
 	//A textitem of int level with text string
@@ -99,7 +104,7 @@ public class TextItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "TextItem[" + getLevel()+","+getText()+"]";
+		return "com.slideitems.TextItem[" + getLevel()+","+getText()+"]";
 	}
 
 	public void printItem(PrintWriter out)

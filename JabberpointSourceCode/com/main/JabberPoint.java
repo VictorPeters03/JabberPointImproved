@@ -1,9 +1,16 @@
-import javax.swing.JOptionPane;
+package com.main;
 
-import java.awt.*;
+import com.accessors.XMLAccessor;
+import com.factories.PresentationFactory;
+import com.factories.StyleFactory;
+import com.presentations.Presentation;
+import com.slideitems.Style;
+import com.slideviewer.SlideViewerFrame;
+
+import javax.swing.*;
 import java.io.IOException;
 
-/** JabberPoint Main Program
+/** com.main.JabberPoint Main Program
  * <p>This program is distributed under the terms of the accompanying
  * COPYRIGHT.txt file (which is NOT the GNU General Public License).
  * Please read it. Your use of the software constitutes acceptance
@@ -50,12 +57,13 @@ public class JabberPoint {
 		
 		createStyles();
 		Presentation presentation;
+		PresentationFactory presentationFactory = new PresentationFactory();
 		try {
 			if (argv.length == 0) { //a demo presentation
-				presentation = new DemoPresentation();
+				presentation = presentationFactory.createPresentation("demo");
 				new SlideViewerFrame(JABVERSION, presentation);
 			} else {
-				presentation = new Presentation();
+				presentation = presentationFactory.createPresentation("normal");
 				new SlideViewerFrame(JABVERSION, presentation);
 				new XMLAccessor().loadFile(presentation, argv[0]);
 			}

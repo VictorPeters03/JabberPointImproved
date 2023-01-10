@@ -1,3 +1,8 @@
+package com.presentations;
+
+import com.slide.Slide;
+import com.slideitems.BitmapItem;
+
 /** A built-in demo presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
@@ -8,7 +13,7 @@
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-class DemoPresentation extends Presentation
+public class DemoPresentation extends Presentation
 {
 	public DemoPresentation()
 	{

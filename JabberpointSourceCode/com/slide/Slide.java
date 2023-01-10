@@ -1,3 +1,8 @@
+package com.slide;
+
+import com.slideitems.SlideItem;
+import com.slideitems.TextItem;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
@@ -23,7 +28,7 @@ public class Slide
         items = new Vector<>();
     }
 
-    //Add a SlideItem
+    //Add a com.slideitems.SlideItem
     public void append(SlideItem anItem)
     {
         items.addElement(anItem);
@@ -41,13 +46,13 @@ public class Slide
         title = newTitle;
     }
 
-    //Create a TextItem out of a String and add the TextItem
+    //Create a com.slideitems.TextItem out of a String and add the com.slideitems.TextItem
     public void append(int level, String message)
     {
         append(new TextItem(level, message));
     }
 
-    //Returns the SlideItem
+    //Returns the com.slideitems.SlideItem
     public SlideItem getSlideItem(int number)
     {
         return items.elementAt(number);

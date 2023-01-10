@@ -1,3 +1,8 @@
+package com.presentations;
+
+import com.slide.Slide;
+import com.slideviewer.SlideViewerComponent;
+
 import java.util.ArrayList;
 
 
@@ -78,7 +83,7 @@ public class Presentation {
 	}
 
 	//Remove the presentation
-	void clear() {
+	public void clear() {
 		showList = new ArrayList<>();
 		setSlideNumber(-1);
 	}

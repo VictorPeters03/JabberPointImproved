@@ -1,3 +1,5 @@
+package com.controllers;
+
 public class JabberPointMenuItems
 {
     public static final String ABOUT = "About";

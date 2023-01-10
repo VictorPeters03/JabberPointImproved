@@ -1,3 +1,5 @@
+package com.menubuilders;
+
 import java.awt.MenuItem;
 
 public interface IMakeMenuItem

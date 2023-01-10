@@ -1,13 +1,16 @@
-package com.builders;
+package com.menubuilders;
+
+import com.controllers.JabberPointMenuItems;
+import com.main.AboutBox;
 
 import java.awt.*;
 
 public class HelpMenuBuilder implements IMakeMenuItem
 {
-//    public builders.HelpMenuBuilder(Frame parent, Presentation pres, Menu helpMenu)
+//    public builders.HelpMenuBuilder(Frame parent, com.presentations.Presentation pres, Menu helpMenu)
 //    {
 //        MenuItem menuItem;
-//        helpMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.ABOUT));
+//        helpMenu.add(menuItem = mkMenuItem(com.controllers.JabberPointMenuItems.ABOUT));
 //        addShowAboutBoxAction(menuItem, parent);
 //    }
 

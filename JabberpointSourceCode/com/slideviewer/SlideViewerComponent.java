@@ -1,3 +1,8 @@
+package com.slideviewer;
+
+import com.slide.Slide;
+import com.presentations.Presentation;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Dimension;
@@ -7,7 +12,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 
-/** <p>SlideViewerComponent is a graphical component that ca display Slides.</p>
+/** <p>com.slideviewer.SlideViewerComponent is a graphical component that ca display Slides.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.1 2002/12/17 Gert Florijn
  * @version 1.2 2003/11/19 Sylvia Stuurman

@@ -1,9 +1,13 @@
+package com.accessors;
+
+import com.presentations.Presentation;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * <p>An Accessor makes it possible to read and write data
+ * <p>An com.accessors.Accessor makes it possible to read and write data
  * for a presentation.</p>
  * <p>Non-abstract subclasses should implement the load and save methods.</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman

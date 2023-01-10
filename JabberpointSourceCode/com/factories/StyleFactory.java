@@ -1,3 +1,7 @@
+package com.factories;
+
+import com.slideitems.Style;
+
 import java.awt.*;
 
 public class StyleFactory

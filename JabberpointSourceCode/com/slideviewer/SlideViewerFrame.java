@@ -1,6 +1,11 @@
+package com.slideviewer;
+
+import com.controllers.KeyController;
+import com.controllers.MenuController;
+import com.presentations.Presentation;
+import com.slideviewer.SlideViewerComponent;
+
 import java.awt.Dimension;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowAdapter;
 import javax.swing.JFrame;
 
 /**

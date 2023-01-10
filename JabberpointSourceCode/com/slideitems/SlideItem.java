@@ -1,3 +1,5 @@
+package com.slideitems;
+
 import java.awt.Rectangle;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
@@ -15,7 +17,7 @@ import java.io.PrintWriter;
 */
 
 public abstract class SlideItem {
-	protected int level; //The level of the SlideItem
+	protected int level; //The level of the com.slideitems.SlideItem
 
 	public SlideItem(int lev) {
 		level = lev;

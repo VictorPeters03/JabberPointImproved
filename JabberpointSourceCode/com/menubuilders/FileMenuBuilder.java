@@ -1,4 +1,9 @@
-package com.builders;
+package com.menubuilders;
+
+import com.accessors.Accessor;
+import com.accessors.XMLAccessor;
+import com.controllers.JabberPointMenuItems;
+import com.presentations.Presentation;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -6,7 +11,6 @@ import java.awt.Frame;
 import java.awt.Menu;
 import java.awt.MenuItem;
 import java.awt.MenuShortcut;
-import IMakeMenuItem;
 
 public class FileMenuBuilder implements IMakeMenuItem
 {

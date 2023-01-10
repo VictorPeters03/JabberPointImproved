@@ -1,3 +1,9 @@
+package com.accessors;
+
+import com.slide.Slide;
+import com.presentations.Presentation;
+import com.slideitems.BitmapItem;
+import com.slideitems.TextItem;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -14,7 +20,7 @@ import java.io.PrintWriter;
 
 
 /**
- * XMLAccessor, reads and writes XML files
+ * com.accessors.XMLAccessor, reads and writes XML files
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman

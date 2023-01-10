@@ -1,11 +1,12 @@
-import java.awt.Rectangle;
-import java.awt.Graphics;
+package com.slideitems;
+
+import com.main.JabberPoint;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.io.File;
-
-import javax.imageio.ImageIO;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -21,7 +22,8 @@ import java.io.PrintWriter;
  * @version 1.6 2014/05/16 Sylvia Stuurman
 */
 
-public class BitmapItem extends SlideItem {
+public class BitmapItem extends SlideItem
+{
   private BufferedImage bufferedImage;
   private String imageName;
   
@@ -63,7 +65,7 @@ public class BitmapItem extends SlideItem {
 	}
 
 	public String toString() {
-		return "BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "com.slideitems.BitmapItem[" + getLevel() + "," + imageName + "]";
 	}
 
 	public void printItem(PrintWriter out)
