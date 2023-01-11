@@ -2,16 +2,16 @@ package com.factories;
 
 import com.presentations.DemoPresentation;
 import com.presentations.Presentation;
+import com.presentations.PresentationType;
 
 public class PresentationFactory
 {
-    public Presentation createPresentation(String type)
+    public static Presentation createPresentation(PresentationType type)
     {
         return switch (type)
         {
-            case "normal" -> new Presentation();
-            case "demo" -> new DemoPresentation();
-            default -> null;
+            case NORMAL -> new Presentation();
+            case DEMO -> new DemoPresentation();
         };
     }
 }

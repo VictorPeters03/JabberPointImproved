@@ -2,8 +2,7 @@ package com.slideitems;
 
 import com.factories.StyleFactory;
 
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 
 /**
  * <p>com.slideitems.Style stands for Indent, Color, Font and Leading.</p>

@@ -1,5 +1,6 @@
 package com.slideitems;
 
+import com.factories.StyleFactory;
 import com.main.JabberPoint;
 import com.slide.Slide;
 
@@ -32,11 +33,13 @@ import java.util.ArrayList;
 public class TextItem extends SlideItem
 {
 	private String text;
+	private Style style;
 
 	//A textitem of int level with text string
 	public TextItem(int level, String string) {
 		super(level);
 		text = string;
+		this.style = StyleFactory.createStyle(level);
 	}
 
 	//Returns the text
@@ -53,8 +56,8 @@ public class TextItem extends SlideItem
 
 //Returns the bounding box of an Item
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale) {
-		List<TextLayout> layouts = getLayouts(g, JabberPoint.getStyle(level), scale);
-		int xsize = 0, ysize = (int) (JabberPoint.getStyle(level).leading * scale);
+		List<TextLayout> layouts = getLayouts(g, this.style, scale);
+		int xsize = 0, ysize = (int) (this.style.leading * scale);
 		for (TextLayout layout : layouts)
 		{
 			Rectangle2D bounds = layout.getBounds();
@@ -68,7 +71,7 @@ public class TextItem extends SlideItem
 			}
 			ysize += layout.getLeading() + layout.getDescent();
 		}
-		return new Rectangle((int) (JabberPoint.getStyle(level).indent*scale), 0, xsize, ysize );
+		return new Rectangle((int) (this.style.indent*scale), 0, xsize, ysize );
 	}
 
 //Draws the item
@@ -76,11 +79,11 @@ public class TextItem extends SlideItem
 		if (text == null || text.length() == 0) {
 			return;
 		}
-		List<TextLayout> layouts = getLayouts(g, JabberPoint.getStyle(level), scale);
-		Point pen = new Point(x + (int)(JabberPoint.getStyle(level).indent * scale),
-				y + (int) (JabberPoint.getStyle(level).leading * scale));
+		List<TextLayout> layouts = getLayouts(g, this.style, scale);
+		Point pen = new Point(x + (int)(this.style.indent * scale),
+				y + (int) (this.style.leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
-		g2d.setColor(JabberPoint.getStyle(level).color);
+		g2d.setColor(this.style.color);
 		for (TextLayout layout : layouts)
 		{
 			pen.y += layout.getAscent();
@@ -104,7 +107,7 @@ public class TextItem extends SlideItem
 	}
 
 	public String toString() {
-		return "com.slideitems.TextItem[" + getLevel()+","+getText()+"]";
+		return "TextItem[" + getLevel()+","+getText()+"]";
 	}
 
 	public void printItem(PrintWriter out)

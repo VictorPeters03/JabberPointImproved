@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 */
 
 public abstract class SlideItem {
-	protected int level; //The level of the com.slideitems.SlideItem
+	protected int level; //The level of the SlideItem
 
 	public SlideItem(int lev) {
 		level = lev;

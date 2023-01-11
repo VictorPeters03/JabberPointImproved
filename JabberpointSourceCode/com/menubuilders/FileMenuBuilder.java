@@ -18,6 +18,7 @@ public class FileMenuBuilder implements IMakeMenuItem
     protected static final String IOEX = "IO Exception: ";
     protected static final String LOADERR = "Load Error";
     protected static final String SAVEERR = "Save Error";
+    protected static final String TESTFILE = "testPresentation.xml";
 
     public void buildMenu(Frame parent, Presentation pres, Menu fileMenu)
     {
@@ -41,10 +42,10 @@ public class FileMenuBuilder implements IMakeMenuItem
             Accessor xmlAccessor = new XMLAccessor();
             try
             {
-                String presTitle = JOptionPane.showInputDialog("Enter name of presentation");
-                xmlAccessor.loadFile(presentation, presTitle);
+                xmlAccessor.loadFile(presentation, TESTFILE);
                 presentation.setSlideNumber(0);
-            } catch (IOException exc)
+            }
+            catch (IOException exc)
             {
                 JOptionPane.showMessageDialog(parent, IOEX + exc,
                         LOADERR, JOptionPane.ERROR_MESSAGE);

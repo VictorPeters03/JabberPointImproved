@@ -1,5 +1,6 @@
 package com.slideitems;
 
+import com.factories.StyleFactory;
 import com.main.JabberPoint;
 
 import javax.imageio.ImageIO;
@@ -26,6 +27,7 @@ public class BitmapItem extends SlideItem
 {
   private BufferedImage bufferedImage;
   private String imageName;
+  private Style style;
   
   protected static final String FILE = "File ";
   protected static final String NOTFOUND = " not found";
@@ -41,6 +43,7 @@ public class BitmapItem extends SlideItem
 		catch (IOException e) {
 			System.err.println(FILE + imageName + NOTFOUND) ;
 		}
+		this.style = StyleFactory.createStyle(level);
 	}
 
 	//Returns the filename of the image
@@ -50,22 +53,22 @@ public class BitmapItem extends SlideItem
 
 	//Returns the bounding box of the image
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale) {
-		return new Rectangle((int) (JabberPoint.getStyle(level).indent * scale), 0,
+		return new Rectangle((int) (this.style.indent * scale), 0,
 				(int) (bufferedImage.getWidth(observer) * scale),
-				((int) (JabberPoint.getStyle(level).leading * scale)) +
+				((int) (this.style.leading * scale)) +
 				(int) (bufferedImage.getHeight(observer) * scale));
 	}
 
 	//Draws the image
 	public void draw(int x, int y, float scale, Graphics g, ImageObserver observer) {
-		int width = x + (int) (JabberPoint.getStyle(level).indent * scale);
-		int height = y + (int) (JabberPoint.getStyle(level).leading * scale);
+		int width = x + (int) (this.style.indent * scale);
+		int height = y + (int) (this.style.leading * scale);
 		g.drawImage(bufferedImage, width, height,(int) (bufferedImage.getWidth(observer)*scale),
                 (int) (bufferedImage.getHeight(observer)*scale), observer);
 	}
 
 	public String toString() {
-		return "com.slideitems.BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "BitmapItem[" + getLevel() + "," + imageName + "]";
 	}
 
 	public void printItem(PrintWriter out)

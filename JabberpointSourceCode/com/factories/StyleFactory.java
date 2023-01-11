@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class StyleFactory
 {
-    public Style createStyle(int item)
+    public static Style createStyle(int item)
     {
         return switch (item)
         {
@@ -15,7 +15,7 @@ public class StyleFactory
             case 2 -> new Style(50, Color.black, 36, 10);
             case 3 -> new Style(70, Color.black, 30, 10);
             case 4 -> new Style(90, Color.black, 24, 10);
-            default -> null;
+            default -> throw new IllegalStateException("Unexpected value: " + item);
         };
     }
 }

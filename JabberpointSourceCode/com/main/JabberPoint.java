@@ -1,10 +1,10 @@
 package com.main;
 
-import com.accessors.XMLAccessor;
+import com.accessors.AccessorType;
+import com.factories.AccessorFactory;
 import com.factories.PresentationFactory;
-import com.factories.StyleFactory;
 import com.presentations.Presentation;
-import com.slideitems.Style;
+import com.presentations.PresentationType;
 import com.slideviewer.SlideViewerFrame;
 
 import javax.swing.*;
@@ -29,43 +29,19 @@ public class JabberPoint {
 	protected static final String JABERR = "Jabberpoint Error ";
 	protected static final String JABVERSION = "Jabberpoint 1.6 - OU version";
 
-	private static Style[] styles; // de styles
-
-	public static void createStyles()
-	{
-		styles = new Style[5];
-		StyleFactory styleFactory = new StyleFactory();
-		// De styles zijn vast ingecodeerd.
-		styles[0] = styleFactory.createStyle(0);    // style voor item-level 0
-		styles[1] = styleFactory.createStyle(1);    // style voor item-level 1
-		styles[2] = styleFactory.createStyle(2);    // style voor item-level 2
-		styles[3] = styleFactory.createStyle(3);    // style voor item-level 3
-		styles[4] = styleFactory.createStyle(4);    // style voor item-level 4
-	}
-
-	public static Style getStyle(int level)
-	{
-		if (level >= styles.length)
-		{
-			level = styles.length - 1;
-		}
-		return styles[level];
-	}
+	// de styles
 
 	/** The main program */
 	public static void main(String[] argv) {
-		
-		createStyles();
 		Presentation presentation;
-		PresentationFactory presentationFactory = new PresentationFactory();
 		try {
 			if (argv.length == 0) { //a demo presentation
-				presentation = presentationFactory.createPresentation("demo");
+				presentation = PresentationFactory.createPresentation(PresentationType.DEMO);
 				new SlideViewerFrame(JABVERSION, presentation);
 			} else {
-				presentation = presentationFactory.createPresentation("normal");
+				presentation = PresentationFactory.createPresentation(PresentationType.NORMAL);
 				new SlideViewerFrame(JABVERSION, presentation);
-				new XMLAccessor().loadFile(presentation, argv[0]);
+				AccessorFactory.buildAccessor(AccessorType.XML).loadFile(presentation, argv[0]);
 			}
 			presentation.setSlideNumber(0);
 		} catch (IOException ex) {
