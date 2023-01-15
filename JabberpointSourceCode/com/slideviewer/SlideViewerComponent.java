@@ -1,15 +1,10 @@
 package com.slideviewer;
 
-import com.slide.Slide;
 import com.presentations.Presentation;
+import com.slide.Slide;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 
 /** <p>com.slideviewer.SlideViewerComponent is a graphical component that ca display Slides.</p>
@@ -28,18 +23,11 @@ public class SlideViewerComponent extends JComponent {
 	private Font labelFont; //The font for labels
 	private Presentation presentation; //The presentation
 	private JFrame frame;
-	private static final Color BGCOLOR = Color.white;
-	private static final Color COLOR = Color.black;
-	private static final String FONTNAME = "Dialog";
-	private static final int FONTSTYLE = Font.BOLD;
-	private static final int FONTHEIGHT = 10;
-	private static final int XPOS = 1100;
-	private static final int YPOS = 20;
 
 	public SlideViewerComponent(Presentation pres, JFrame frame) {
-		setBackground(BGCOLOR); 
+		setBackground(SlideProperties.BGCOLOR);
 		presentation = pres;
-		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
+		labelFont = new Font(SlideProperties.FONTNAME, SlideProperties.FONTSTYLE, SlideProperties.FONTHEIGHT);
 		this.frame = frame;
 	}
 
@@ -60,16 +48,16 @@ public class SlideViewerComponent extends JComponent {
 
 //Draw the slide
 	public void paintComponent(Graphics g) {
-		g.setColor(BGCOLOR);
+		g.setColor(SlideProperties.BGCOLOR);
 		g.fillRect(0, 0, getSize().width, getSize().height);
 		if (presentation.getSlideNumber() < 0 || slide == null) {
 			return;
 		}
 		g.setFont(labelFont);
-		g.setColor(COLOR);
+		g.setColor(SlideProperties.COLOR);
 		g.drawString("Slide " + (1 + presentation.getSlideNumber()) + " of " +
-                 presentation.getSize(), XPOS, YPOS);
-		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
+                 presentation.getSize(), SlideProperties.XPOS, SlideProperties.YPOS);
+		Rectangle area = new Rectangle(0, SlideProperties.YPOS, getWidth(), (getHeight() - SlideProperties.YPOS));
 		slide.draw(g, area, this);
 	}
 }

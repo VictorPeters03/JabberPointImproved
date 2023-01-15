@@ -1,10 +1,10 @@
 package com.slide;
 
+import com.enums.SlideItemType;
+import com.factories.SlideItemFactory;
 import com.slideitems.SlideItem;
-import com.slideitems.TextItem;
 
-import java.awt.Graphics;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.io.PrintWriter;
 import java.util.Vector;
@@ -28,7 +28,7 @@ public class Slide
         items = new Vector<>();
     }
 
-    //Add a com.slideitems.SlideItem
+    //Add a SlideItem
     public void append(SlideItem anItem)
     {
         items.addElement(anItem);
@@ -46,28 +46,10 @@ public class Slide
         title = newTitle;
     }
 
-    //Create a com.slideitems.TextItem out of a String and add the com.slideitems.TextItem
+    //Create a TextItem out of a String and add the TextItem
     public void append(int level, String message)
     {
-        append(new TextItem(level, message));
-    }
-
-    //Returns the com.slideitems.SlideItem
-    public SlideItem getSlideItem(int number)
-    {
-        return items.elementAt(number);
-    }
-
-    //Return all the SlideItems in a vector
-    public Vector<SlideItem> getSlideItems()
-    {
-        return items;
-    }
-
-    //Returns the size of a slide
-    public int getSize()
-    {
-        return items.size();
+        append(SlideItemFactory.buildSlideItem(SlideItemType.TEXT, level, message));
     }
 
     //Draws the slide
@@ -77,7 +59,7 @@ public class Slide
         int x = area.x;
         int y = area.y;
         //The title is treated separately
-        SlideItem slideItemTitle = new TextItem(0, getTitle());
+        SlideItem slideItemTitle = SlideItemFactory.buildSlideItem(SlideItemType.TEXT, 0, getTitle());
         slideItemTitle.draw(x, y, scale, g, view);
         y += slideItemTitle.getBoundingBox(g, view, scale).height;
         for (SlideItem slideItem : this.items)

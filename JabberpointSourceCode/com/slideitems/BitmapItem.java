@@ -1,7 +1,6 @@
 package com.slideitems;
 
 import com.factories.StyleFactory;
-import com.main.JabberPoint;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -27,7 +26,6 @@ public class BitmapItem extends SlideItem
 {
   private BufferedImage bufferedImage;
   private String imageName;
-  private Style style;
   
   protected static final String FILE = "File ";
   protected static final String NOTFOUND = " not found";
@@ -43,7 +41,7 @@ public class BitmapItem extends SlideItem
 		catch (IOException e) {
 			System.err.println(FILE + imageName + NOTFOUND) ;
 		}
-		this.style = StyleFactory.createStyle(level);
+		this.style = StyleFactory.buildStyle(level);
 	}
 
 	//Returns the filename of the image

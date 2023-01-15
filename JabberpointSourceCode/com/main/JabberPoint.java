@@ -1,10 +1,10 @@
 package com.main;
 
-import com.accessors.AccessorType;
+import com.enums.AccessorType;
 import com.factories.AccessorFactory;
 import com.factories.PresentationFactory;
 import com.presentations.Presentation;
-import com.presentations.PresentationType;
+import com.enums.PresentationType;
 import com.slideviewer.SlideViewerFrame;
 
 import javax.swing.*;

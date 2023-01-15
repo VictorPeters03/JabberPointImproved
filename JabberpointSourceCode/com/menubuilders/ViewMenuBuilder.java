@@ -6,9 +6,9 @@ import com.presentations.Presentation;
 import javax.swing.*;
 import java.awt.*;
 
-public class ViewMenuBuilder implements IMakeMenuItem
+public class ViewMenuBuilder extends MenuBuilder
 {
-    public void buildMenu(Presentation pres, Menu viewMenu)
+    public void buildMenu(Frame frame, Presentation pres, Menu viewMenu)
     {
         MenuItem menuItem;
         viewMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.NEXT));
@@ -37,11 +37,5 @@ public class ViewMenuBuilder implements IMakeMenuItem
             int pageNumber = Integer.parseInt(pageNumberStr);
             presentation.setSlideNumber(pageNumber - 1);
         });
-    }
-
-    @Override
-    public MenuItem mkMenuItem(String name)
-    {
-        return new MenuItem(name, new MenuShortcut(name.charAt(0)));
     }
 }

@@ -1,20 +1,14 @@
 package com.menubuilders;
 
 import com.controllers.JabberPointMenuItems;
-import com.main.AboutBox;
+import com.about.AboutBox;
+import com.presentations.Presentation;
 
 import java.awt.*;
 
-public class HelpMenuBuilder implements IMakeMenuItem
+public class HelpMenuBuilder extends MenuBuilder
 {
-//    public builders.HelpMenuBuilder(Frame parent, com.presentations.Presentation pres, Menu helpMenu)
-//    {
-//        MenuItem menuItem;
-//        helpMenu.add(menuItem = mkMenuItem(com.controllers.JabberPointMenuItems.ABOUT));
-//        addShowAboutBoxAction(menuItem, parent);
-//    }
-
-    public void buildMenu(Frame parent, Menu helpMenu)
+    public void buildMenu(Frame parent, Presentation pres, Menu helpMenu)
     {
         MenuItem menuItem;
         helpMenu.add(menuItem = mkMenuItem(JabberPointMenuItems.ABOUT));
@@ -24,11 +18,5 @@ public class HelpMenuBuilder implements IMakeMenuItem
     public void addShowAboutBoxAction(MenuItem menuItem, Frame parent)
     {
         menuItem.addActionListener(actionEvent -> AboutBox.show(parent));
-    }
-
-    @Override
-    public MenuItem mkMenuItem(String name)
-    {
-        return new MenuItem(name, new MenuShortcut(name.charAt(0)));
     }
 }

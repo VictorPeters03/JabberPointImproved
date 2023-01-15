@@ -1,9 +1,9 @@
 package com.accessors;
 
-import com.slide.Slide;
+import com.enums.SlideItemType;
+import com.factories.SlideItemFactory;
 import com.presentations.Presentation;
-import com.slideitems.BitmapItem;
-import com.slideitems.TextItem;
+import com.slide.Slide;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -28,19 +28,6 @@ import java.io.PrintWriter;
 
 public class XMLAccessor extends Accessor
 {
-
-    /**
-     * Names of xml tags of attributes
-     */
-    protected static final String SHOWTITLE = "showtitle";
-    protected static final String SLIDETITLE = "title";
-    protected static final String SLIDE = "slide";
-    protected static final String ITEM = "item";
-    protected static final String LEVEL = "level";
-    protected static final String KIND = "kind";
-    protected static final String TEXT = "text";
-    protected static final String IMAGE = "image";
-
     /**
      * Text of messages
      */
@@ -56,7 +43,7 @@ public class XMLAccessor extends Accessor
 
     }
 
-    public void loadFile(Presentation presentation, String filename) throws IOException
+    public void loadFile(Presentation presentation, String filename)
     {
         int slideNumber, itemNumber, max, maxItems;
         try
@@ -64,18 +51,18 @@ public class XMLAccessor extends Accessor
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = builder.parse(new File(filename)); //Create a JDOM document
             Element doc = document.getDocumentElement();
-            presentation.setTitle(getTitle(doc, SHOWTITLE));
+            presentation.setTitle(getTitle(doc, XMLTagNames.SHOWTITLE));
 
-            NodeList slides = doc.getElementsByTagName(SLIDE);
+            NodeList slides = doc.getElementsByTagName(XMLTagNames.SLIDE);
             max = slides.getLength();
             for (slideNumber = 0; slideNumber < max; slideNumber++)
             {
                 Element xmlSlide = (Element) slides.item(slideNumber);
                 Slide slide = new Slide();
-                slide.setTitle(getTitle(xmlSlide, SLIDETITLE));
+                slide.setTitle(getTitle(xmlSlide, XMLTagNames.SLIDETITLE));
                 presentation.append(slide);
 
-                NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
+                NodeList slideItems = xmlSlide.getElementsByTagName(XMLTagNames.ITEM);
                 maxItems = slideItems.getLength();
                 for (itemNumber = 0; itemNumber < maxItems; itemNumber++)
                 {
@@ -99,7 +86,7 @@ public class XMLAccessor extends Accessor
     {
         int level = 1; // default
         NamedNodeMap attributes = item.getAttributes();
-        String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
+        String leveltext = attributes.getNamedItem(XMLTagNames.LEVEL).getTextContent();
         if (leveltext != null)
         {
             try
@@ -110,16 +97,16 @@ public class XMLAccessor extends Accessor
                 System.err.println(NFE);
             }
         }
-        String type = attributes.getNamedItem(KIND).getTextContent();
-        if (TEXT.equals(type))
+        String type = attributes.getNamedItem(XMLTagNames.KIND).getTextContent();
+        if (XMLTagNames.TEXT.equals(type))
         {
-            slide.append(new TextItem(level, item.getTextContent()));
+            slide.append(SlideItemFactory.buildSlideItem(SlideItemType.TEXT, level, item.getTextContent()));
         }
         else
         {
-            if (IMAGE.equals(type))
+            if (XMLTagNames.IMAGE.equals(type))
             {
-                slide.append(new BitmapItem(level, item.getTextContent()));
+                slide.append(SlideItemFactory.buildSlideItem(SlideItemType.BITMAP, level, item.getTextContent()));
             }
             else
             {
@@ -135,7 +122,7 @@ public class XMLAccessor extends Accessor
         out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
         out.println("<presentation>");
         out.print("<showtitle>" + presentation.getTitle() + "</showtitle>");
-        for (Slide slide : presentation.getShowList())
+        for (Slide slide : presentation.getSlides())
         {
             out.println("<slide>");
             out.println("<title>" + slide.getTitle() + "</title>");

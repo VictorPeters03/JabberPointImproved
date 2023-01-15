@@ -1,7 +1,6 @@
 package com.slideitems;
 
 import com.factories.StyleFactory;
-import com.main.JabberPoint;
 import com.slide.Slide;
 
 import java.awt.Rectangle;
@@ -33,13 +32,12 @@ import java.util.ArrayList;
 public class TextItem extends SlideItem
 {
 	private String text;
-	private Style style;
 
 	//A textitem of int level with text string
 	public TextItem(int level, String string) {
 		super(level);
 		text = string;
-		this.style = StyleFactory.createStyle(level);
+		this.style = StyleFactory.buildStyle(level);
 	}
 
 	//Returns the text
@@ -56,7 +54,7 @@ public class TextItem extends SlideItem
 
 //Returns the bounding box of an Item
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale) {
-		List<TextLayout> layouts = getLayouts(g, this.style, scale);
+		List<TextLayout> layouts = getLayouts(g, scale);
 		int xsize = 0, ysize = (int) (this.style.leading * scale);
 		for (TextLayout layout : layouts)
 		{
@@ -79,7 +77,7 @@ public class TextItem extends SlideItem
 		if (text == null || text.length() == 0) {
 			return;
 		}
-		List<TextLayout> layouts = getLayouts(g, this.style, scale);
+		List<TextLayout> layouts = getLayouts(g, scale);
 		Point pen = new Point(x + (int)(this.style.indent * scale),
 				y + (int) (this.style.leading * scale));
 		Graphics2D g2d = (Graphics2D)g;
@@ -92,13 +90,13 @@ public class TextItem extends SlideItem
 		}
 	  }
 
-	private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
+	private List<TextLayout> getLayouts(Graphics g, float scale) {
 		List<TextLayout> layouts = new ArrayList<>();
-		AttributedString attrStr = getAttributedString(s, scale);
+		AttributedString attrStr = getAttributedString(this.style, scale);
     	Graphics2D g2d = (Graphics2D) g;
     	FontRenderContext frc = g2d.getFontRenderContext();
     	LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
-    	float wrappingWidth = (Slide.WIDTH - s.indent) * scale;
+    	float wrappingWidth = (Slide.WIDTH - this.style.indent) * scale;
     	while (measurer.getPosition() < getText().length()) {
     		TextLayout layout = measurer.nextLayout(wrappingWidth);
     		layouts.add(layout);

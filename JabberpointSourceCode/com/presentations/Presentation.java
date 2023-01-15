@@ -20,27 +20,22 @@ import java.util.ArrayList;
 
 public class Presentation {
 	protected String showTitle; //The title of the presentation
-	private ArrayList<Slide> showList = null; //An ArrayList with slides
+	private ArrayList<Slide> slides; //An ArrayList with slides
 	private int currentSlideNumber = 0; //The number of the current slide
 	private SlideViewerComponent slideViewComponent; //The view component of the slides
 
 	public Presentation() {
 		slideViewComponent = null;
-		clear();
-	}
-
-	public Presentation(SlideViewerComponent slideViewerComponent) {
-		this.slideViewComponent = slideViewerComponent;
-		clear();
+		this.slides = new ArrayList<>();
 	}
 
 	public int getSize() {
-		return showList.size();
+		return slides.size();
 	}
 
-	public ArrayList<Slide> getShowList()
+	public ArrayList<Slide> getSlides()
 	{
-		return showList;
+		return slides;
 	}
 
 	public String getTitle() {
@@ -63,7 +58,7 @@ public class Presentation {
 	//Change the current slide number and report it the window
 	public void setSlideNumber(int number) {
 		currentSlideNumber = number;
-		if (slideViewComponent != null && number < showList.size()) {
+		if (slideViewComponent != null && number < slides.size()) {
 			slideViewComponent.update(this, getCurrentSlide());
 		}
 	}
@@ -77,25 +72,25 @@ public class Presentation {
 
 	//Navigate to the next slide unless we are at the last slide
 	public void nextSlide() {
-		if (currentSlideNumber < (showList.size()-1)) {
+		if (currentSlideNumber < (slides.size()-1)) {
 			setSlideNumber(currentSlideNumber + 1);
 		}
 	}
 
 	//Remove the presentation
 	public void clear() {
-		showList = new ArrayList<>();
+		slides = new ArrayList<>();
 		setSlideNumber(-1);
 	}
 
 	//Add a slide to the presentation
 	public void append(Slide slide) {
-		showList.add(slide);
+		slides.add(slide);
 	}
 
 	//Return a slide with a specific number
 	public Slide getSlide(int number) {
-		return number < 0 || number >= getSize() ? null : showList.get(number);
+		return number < 0 || number >= getSize() ? null : slides.get(number);
 	}
 
 	//Return the current slide

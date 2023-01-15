@@ -1,4 +1,4 @@
-package com.accessors;
+package com.enums;
 
 public enum AccessorType
 {

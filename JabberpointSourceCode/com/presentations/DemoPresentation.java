@@ -1,7 +1,8 @@
 package com.presentations;
 
+import com.enums.SlideItemType;
+import com.factories.SlideItemFactory;
 import com.slide.Slide;
-import com.slideitems.BitmapItem;
 
 /** A built-in demo presentation
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -15,6 +16,7 @@ import com.slideitems.BitmapItem;
 
 public class DemoPresentation extends Presentation
 {
+	private final String imageName = "JabberPoint.jpg";
 	public DemoPresentation()
 	{
 		this.showTitle = "Demo Presentation";
@@ -50,7 +52,7 @@ public class DemoPresentation extends Presentation
 		slide.append(2, "use File->Open from the menu.");
 		slide.append(1, " ");
 		slide.append(1, "This is the end of the presentation.");
-		slide.append(new BitmapItem(1, "JabberPoint.jpg"));
+		slide.append(SlideItemFactory.buildSlideItem(SlideItemType.BITMAP, 1, this.imageName));
 		append(slide);
 	}
 }

@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 
 public abstract class SlideItem {
 	protected int level; //The level of the SlideItem
+	protected Style style;
 
 	public SlideItem(int lev) {
 		level = lev;

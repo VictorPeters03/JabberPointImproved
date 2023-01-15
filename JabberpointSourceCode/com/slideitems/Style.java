@@ -1,7 +1,5 @@
 package com.slideitems;
 
-import com.factories.StyleFactory;
-
 import java.awt.*;
 
 /**
@@ -14,7 +12,7 @@ import java.awt.*;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Style extends StyleFactory
+public class Style
 {
 
     private static final String FONTNAME = "Helvetica";

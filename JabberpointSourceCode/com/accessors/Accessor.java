@@ -2,9 +2,7 @@ package com.accessors;
 
 import com.presentations.Presentation;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * <p>An com.accessors.Accessor makes it possible to read and write data
@@ -20,9 +18,6 @@ import java.io.PrintWriter;
  */
 
 public abstract class Accessor {
-
-	public Accessor() {
-	}
 
 	public abstract void loadFile(Presentation p, String fn) throws IOException;
 

@@ -1,18 +1,16 @@
 package com.menubuilders;
 
 import com.accessors.Accessor;
-import com.accessors.XMLAccessor;
 import com.controllers.JabberPointMenuItems;
+import com.enums.AccessorType;
+import com.factories.AccessorFactory;
 import com.presentations.Presentation;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
-import java.awt.Frame;
-import java.awt.Menu;
-import java.awt.MenuItem;
-import java.awt.MenuShortcut;
 
-public class FileMenuBuilder implements IMakeMenuItem
+public class FileMenuBuilder extends MenuBuilder
 {
     protected static final String SAVEFILE = "savedPresentation.xml";
     protected static final String IOEX = "IO Exception: ";
@@ -39,7 +37,7 @@ public class FileMenuBuilder implements IMakeMenuItem
         menuItem.addActionListener(actionEvent ->
         {
             presentation.clear();
-            Accessor xmlAccessor = new XMLAccessor();
+            Accessor xmlAccessor = AccessorFactory.buildAccessor(AccessorType.XML);
             try
             {
                 xmlAccessor.loadFile(presentation, TESTFILE);
@@ -67,7 +65,7 @@ public class FileMenuBuilder implements IMakeMenuItem
     {
         menuItem.addActionListener(e ->
         {
-            Accessor xmlAccessor = new XMLAccessor();
+            Accessor xmlAccessor = AccessorFactory.buildAccessor(AccessorType.XML);
             try
             {
                 xmlAccessor.saveFile(presentation, SAVEFILE);
@@ -77,12 +75,6 @@ public class FileMenuBuilder implements IMakeMenuItem
                         SAVEERR, JOptionPane.ERROR_MESSAGE);
             }
         });
-    }
-
-    @Override
-    public MenuItem mkMenuItem(String name)
-    {
-        return new MenuItem(name, new MenuShortcut(name.charAt(0)));
     }
 
 }

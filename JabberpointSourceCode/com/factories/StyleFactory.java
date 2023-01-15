@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class StyleFactory
 {
-    public static Style createStyle(int item)
+    public static Style buildStyle(int item)
     {
         return switch (item)
         {

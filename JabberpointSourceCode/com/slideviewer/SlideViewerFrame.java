@@ -3,10 +3,11 @@ package com.slideviewer;
 import com.controllers.KeyController;
 import com.controllers.MenuController;
 import com.presentations.Presentation;
-import com.slideviewer.SlideViewerComponent;
 
-import java.awt.Dimension;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * <p>The applicatiewindow for a slideviewcomponent</p>
@@ -34,6 +35,11 @@ public class SlideViewerFrame extends JFrame {
 //Setup the GUI
 	public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation) {
 		setTitle(JABTITLE);
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
 		getContentPane().add(slideViewerComponent);
 		addKeyListener(new KeyController(presentation)); //Add a controller
 		setMenuBar(new MenuController(this, presentation));	//Add another controller

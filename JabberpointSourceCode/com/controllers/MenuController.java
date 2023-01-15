@@ -1,8 +1,7 @@
 package com.controllers;
 
-import com.menubuilders.FileMenuBuilder;
-import com.menubuilders.HelpMenuBuilder;
-import com.menubuilders.ViewMenuBuilder;
+import com.enums.MenuBuilderType;
+import com.factories.MenuBuilderFactory;
 import com.presentations.Presentation;
 
 import java.awt.*;
@@ -24,13 +23,13 @@ public class MenuController extends MenuBar
         parent = frame;
         presentation = pres;
         Menu fileMenuContainer = new Menu(JabberPointMenuItems.FILE);
-        new FileMenuBuilder().buildMenu(this.parent, this.presentation, fileMenuContainer);
+        MenuBuilderFactory.buildMenuBuilder(MenuBuilderType.FILE).buildMenu(this.parent, this.presentation, fileMenuContainer);
         add(fileMenuContainer);
         Menu viewMenuContainer = new Menu(JabberPointMenuItems.VIEW);
-        new ViewMenuBuilder().buildMenu(this.presentation, viewMenuContainer);
+        MenuBuilderFactory.buildMenuBuilder(MenuBuilderType.VIEW).buildMenu(this.parent, this.presentation, viewMenuContainer);
         add(viewMenuContainer);
         Menu helpMenuContainer = new Menu(JabberPointMenuItems.HELP);
-        new HelpMenuBuilder().buildMenu(this.parent, helpMenuContainer);
+        MenuBuilderFactory.buildMenuBuilder(MenuBuilderType.HELP).buildMenu(this.parent, this.presentation, helpMenuContainer);
         setHelpMenu(helpMenuContainer);        //Needed for portability (Motif, etc.).
     }
 

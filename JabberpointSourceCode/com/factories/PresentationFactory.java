@@ -2,7 +2,7 @@ package com.factories;
 
 import com.presentations.DemoPresentation;
 import com.presentations.Presentation;
-import com.presentations.PresentationType;
+import com.enums.PresentationType;
 
 public class PresentationFactory
 {

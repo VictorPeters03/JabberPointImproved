@@ -1,4 +1,4 @@
-package com.presentations;
+package com.enums;
 
 public enum PresentationType
 {
