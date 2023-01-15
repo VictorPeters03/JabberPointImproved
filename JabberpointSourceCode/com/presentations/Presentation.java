@@ -58,7 +58,7 @@ public class Presentation {
 	//Change the current slide number and report it the window
 	public void setSlideNumber(int number) {
 		currentSlideNumber = number;
-		if (slideViewComponent != null && number < slides.size()) {
+		if (slideViewComponent != null && number < slides.size() && number >= 0) {
 			slideViewComponent.update(this, getCurrentSlide());
 		}
 	}
